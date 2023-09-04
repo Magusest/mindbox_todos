@@ -5,12 +5,18 @@
         box-sizing: border-box;
         width: 100%;
         padding: 20px;
+        padding-left: 50px;
         border: none;
         border-bottom: 1px solid #d3d3d3;
         box-shadow: 0px -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
         font-size: 24px;
         outline: none;
         transition: 0.5s;
+
+        &::placeholder {
+            color: #d3d3d3;
+            font-style: italic;
+        }
 
         &:hover,
         &:focus {

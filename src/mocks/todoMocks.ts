@@ -1,10 +1,11 @@
 import { todoType } from "../types/todoType";
+import { nanoid } from 'nanoid'
 
 const todoMocks: todoType[] = [
     {
-        id: '',
+        id: nanoid(),
         content: 'Write all functions',
-        isDone: false,
+        isComplete: false,
     },
 ]
 
