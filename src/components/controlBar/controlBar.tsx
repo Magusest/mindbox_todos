@@ -7,6 +7,7 @@ type Props = {
     todos: todoType[];
     activeFilter: string;
     changeFilter: (filter: string) => void;
+    deleteCompleted: () => void;
 }
 
 function getItemsCoutText(count: number) {
@@ -19,7 +20,7 @@ function getItemsCoutText(count: number) {
     }
 }
 
-export default function ControlBar({todos, activeFilter, changeFilter}: Props) {
+export default function ControlBar({todos, activeFilter, changeFilter, deleteCompleted}: Props) {
     const leftTodos = todos.filter(todo => todo.isComplete === false);
     const itemCountText = getItemsCoutText(leftTodos.length);
 
@@ -39,7 +40,7 @@ export default function ControlBar({todos, activeFilter, changeFilter}: Props) {
                         </li>
                 )}
             </ul>
-            <div>Delete done todo</div>
+            <button className={styles.deleteCompleted} onClick={() => deleteCompleted()}>Clear completed</button>
         </div>
     )
 }

@@ -39,6 +39,12 @@ export default function Main() {
         setActiveFilter(filter)
     }
 
+    const deleteCompleted = () => {
+        setTodos(
+            todos.filter(todo => todo.isComplete !== true)
+        )
+    }
+
     return(
         <main className={styles.main}>
             <TodoForm 
@@ -54,6 +60,7 @@ export default function Main() {
                 todos={todos}
                 activeFilter={activeFilter}
                 changeFilter={changeFilter}
+                deleteCompleted={deleteCompleted}
             />
         </main>
     )
