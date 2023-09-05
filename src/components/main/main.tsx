@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { todoMocks } from "../../mocks/todoMocks"
 import { todoType } from "../../types/todoType"
 import TodoForm from "../todoForm/todoForm";
@@ -11,6 +11,8 @@ import { filters } from "../../utils/const";
 export default function Main() {
     const [todos, setTodos] = useState<todoType[]>(todoMocks);
     const [activeFilter, setActiveFilter] = useState(filters[0]);
+
+    useEffect(()=> {}, [activeFilter])
 
     const addTodo = (todo: string) => {
         setTodos([
@@ -35,17 +37,6 @@ export default function Main() {
 
     const changeFilter = (filter: string) => {
         setActiveFilter(filter)
-        console.log(activeFilter)
-        switch(activeFilter) {
-            case 'active':
-                const activeTodos = setTodos(todos.filter(todo => todo.isComplete === false))
-                return activeTodos
-            case 'completed':
-                const completedTodos = setTodos(todos.filter(todo => todo.isComplete !== false))
-                return completedTodos
-            default: 
-                return todos
-        }
     }
 
     return(
@@ -59,7 +50,7 @@ export default function Main() {
                 deleteTodo={deleteTodo} 
                 activeFilter={activeFilter}
             /> 
-            <ControlBar todos={todos} changeFilter={changeFilter}/>
+            <ControlBar todos={todos} activeFilter={activeFilter} changeFilter={changeFilter}/>
         </main>
     )
 }

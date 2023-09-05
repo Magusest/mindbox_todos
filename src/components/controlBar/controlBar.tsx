@@ -5,6 +5,7 @@ import styles from './controlBar.module.scss'
 
 type Props = {
     todos: todoType[];
+    activeFilter: string;
     changeFilter: (filter: string) => void;
 }
 
@@ -18,7 +19,7 @@ function getItemsCoutText(count: number) {
     }
 }
 
-export default function ControlBar({todos, changeFilter}: Props) {
+export default function ControlBar({todos, activeFilter, changeFilter}: Props) {
     const itemCountText = getItemsCoutText(todos.length)
 
     return(
@@ -27,8 +28,13 @@ export default function ControlBar({todos, changeFilter}: Props) {
             <ul className={styles.filters}>
                 {filters.map(
                     filter => 
-                        <li key={filter}>
-                            <button onClick={() => changeFilter(filter)}>{filter}</button>
+                        <li 
+                            className={`${activeFilter === filter ? styles.filterActive : null}`}
+                            key={filter}
+                        >
+                            <button 
+                                className={styles.button}
+                                onClick={() => changeFilter(filter)}>{filter}</button>
                         </li>
                 )}
             </ul>
