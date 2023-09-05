@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { todoMocks } from "../../mocks/todoMocks"
 import { todoType } from "../../types/todoType"
 import TodoForm from "../todoForm/todoForm";
 import TodosList from "../todosList/todosList";
@@ -9,7 +8,7 @@ import ControlBar from "../controlBar/controlBar";
 import { filters } from "../../utils/const";
 
 export default function Main() {
-    const [todos, setTodos] = useState<todoType[]>(todoMocks);
+    const [todos, setTodos] = useState<todoType[]>([]);
     const [activeFilter, setActiveFilter] = useState(filters[0]);
 
     useEffect(()=> {}, [activeFilter])

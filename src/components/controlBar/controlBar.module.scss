@@ -35,11 +35,18 @@
             cursor: pointer;
             transition: 0.5s;
             border-radius: 4px;
+
+            &:hover,
+            &:focus {
+                text-shadow: #ffd700 1px 0 10px;
+                outline: none;
+            }
+    
+            &:active {
+                color: #ffd700;
+            }    
         }
 
-        .button:hover {
-            text-shadow: #ffd700 1px 0 10px;
-        }
     }
 
     .deleteCompleted {
@@ -50,8 +57,14 @@
         cursor: pointer;
         transition: 0.5s;
 
-        &:hover {
+        &:hover,
+        &:focus {
             text-shadow: rgb(255, 0, 0, 0.5) 1px 0 10px;
+            outline: none;
+        }
+
+        &:active {
+            color: #ff0000
         }
     }
 }
