@@ -25,6 +25,11 @@ const getFiltredTodos = (todos: todoType[], filter: string) => {
 export default function TodosList({todos, toggleIsDone, deleteTodo, activeFilter}: Props) {
     const filtredTodos = getFiltredTodos(todos, activeFilter);
     
+    if (filtredTodos?.length === 0) {
+        return(
+            <h3 className={styles.emptyPlug}>Make some tasks for you today!</h3>
+        ) 
+    }
 
     return(
         <ul 
