@@ -35,7 +35,7 @@ export default function Main() {
         )
     };
 
-    const changeFilter = (filter: string) => {
+    const changeFilter = (filter: string, ) => {
         setActiveFilter(filter)
     }
 
@@ -50,7 +50,11 @@ export default function Main() {
                 deleteTodo={deleteTodo} 
                 activeFilter={activeFilter}
             /> 
-            <ControlBar todos={todos} activeFilter={activeFilter} changeFilter={changeFilter}/>
+            <ControlBar 
+                todos={todos}
+                activeFilter={activeFilter}
+                changeFilter={changeFilter}
+            />
         </main>
     )
 }

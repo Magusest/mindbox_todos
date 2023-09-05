@@ -20,7 +20,8 @@ function getItemsCoutText(count: number) {
 }
 
 export default function ControlBar({todos, activeFilter, changeFilter}: Props) {
-    const itemCountText = getItemsCoutText(todos.length)
+    const leftTodos = todos.filter(todo => todo.isComplete === false);
+    const itemCountText = getItemsCoutText(leftTodos.length);
 
     return(
         <div className={styles.controlBar}>

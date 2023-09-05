@@ -24,6 +24,7 @@ const getFiltredTodos = (todos: todoType[], filter: string) => {
 
 export default function TodosList({todos, toggleIsDone, deleteTodo, activeFilter}: Props) {
     const filtredTodos = getFiltredTodos(todos, activeFilter);
+    
 
     return(
         <ul 
